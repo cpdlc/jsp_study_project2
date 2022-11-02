@@ -38,7 +38,7 @@ public class DBManager {
 			
 	}
 	
-	public void close(Connection conn, Statement stmt){
+	public static void close(Connection conn, Statement stmt){
 		try {
 			conn.close();
 			stmt.close();

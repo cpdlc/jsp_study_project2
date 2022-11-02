@@ -10,7 +10,7 @@
 	
 </head>
 <body>
-	<div id="wrap">
+	<div id="wrap" class="listWrap">
 		<h2>상품 리스트 - 관리자 페이지</h2>
 		<table>
 			<tr>

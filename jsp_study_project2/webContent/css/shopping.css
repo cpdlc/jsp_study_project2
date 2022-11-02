@@ -21,7 +21,7 @@ a{
 	text-decoration: none;
 	color:black;
 	}
-table tr:nth-child(1) td{
+.listWrap table tr:nth-child(1) td{
 	border-top: none;
 	border-left: none;
 	border-right: none;
