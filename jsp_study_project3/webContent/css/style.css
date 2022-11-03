@@ -1,0 +1,18 @@
+@charset "EUC-KR";
+
+.contentWrap{
+	border:1px solid #222;
+	width:60%;
+	margin:0 auto;
+}
+
+.contentWrap h2{text-align: center;}
+table{
+	width:100%;
+	margin:0 auto;
+}
+
+table,tr,th,td{
+	border:1px solid #eee;
+	border-collapse: collapse;
+}

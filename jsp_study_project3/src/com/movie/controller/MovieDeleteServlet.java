@@ -1,4 +1,4 @@
-package com.saeyan.controller;
+package com.movie.controller;
 
 import java.io.IOException;
 
@@ -9,28 +9,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.saeyan.dao.ProductDAO;
-import com.saeyan.dto.ProductVO;
+import com.movie.dao.MovieDAO;
+import com.movie.dto.MemberVO;
 
 /**
- * Servlet implementation class ProductDeleteServlet
+ * Servlet implementation class MovieDeleteServlet
  */
-@WebServlet("/productDelete.do")
-public class ProductDeleteServlet extends HttpServlet {
+@WebServlet("/moviedelete.do")
+public class MovieDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
 		String code = request.getParameter("code");
 		
-		ProductDAO pDao = ProductDAO.getIncetance();
-		ProductVO pVo = pDao.selectProductByCode(code);
+		MovieDAO dao = MovieDAO.getMovieDAO();
+		MemberVO vo = dao.getMember(code);
 		
-		request.setAttribute("product", pVo);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("productDelete.jsp");
+		request.setAttribute("vo", vo);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("movieDelete.jsp");
 		dispatcher.forward(request, response);
+		
 		
 	}
 
@@ -38,13 +40,13 @@ public class ProductDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String code = request.getParameter("code");
-		ProductDAO pDao = ProductDAO.getIncetance();
 		
-		pDao.deleteProduct(code);
+		MovieDAO dao = MovieDAO.getMovieDAO();
+		dao.deleteMovie(code);
 		
-		response.sendRedirect("productList.do");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("movielist.do");
+		dispatcher.forward(request, response);
 		
 	}
 
